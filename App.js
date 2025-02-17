@@ -1,12 +1,11 @@
-const API_URL_REGISTER = 'http://localhost:3000/register';
-const API_URL_USERS = 'http://localhost:3000/users';
+const API_URL = 'http://localhost:3000/register';
 
 // Función para registrar un usuario
-document.getElementById('registration-form').addEventListener('submit', async function(event) {
+window.getElementById('registration-form'),('submit', async function(event) {
     event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const username = window.getElementById('username').value;
+    const password = window.getElementById('password').value;
     
     if (username === '' || password === '') {
         alert('Todos los campos son obligatorios');
@@ -14,7 +13,7 @@ document.getElementById('registration-form').addEventListener('submit', async fu
     }
 
     try {
-        const response = await fetch(API_URL_REGISTER, {
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
@@ -25,7 +24,9 @@ document.getElementById('registration-form').addEventListener('submit', async fu
             throw new Error(errorData.message || 'Error al registrar el usuario');
         }
 
+        const data = await response.json();
         alert('Usuario registrado con éxito');
+        localStorage.setItem('token', data.token);
         this.reset();
         fetchUsers();
     } catch (error) {
@@ -39,7 +40,16 @@ async function fetchUsers() {
     userList.innerHTML = '';
 
     try {
-        const response = await fetch(API_URL_USERS);
+        const token = localStorage.getItem('token');
+        if (!token) {
+            alert('No estás autenticado. Inicia sesión para ver los usuarios.');
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/users', {
+            headers: { 'Authorization': `Bearer ${token}` }
+        });
+
         if (!response.ok) {
             const errorData = await response.json();
             throw new Error(errorData.message || 'Error al obtener la lista de usuarios');
@@ -57,7 +67,7 @@ async function fetchUsers() {
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Eliminar';
-            deleteButton.onclick = async () => await deleteUser (user.id);
+            deleteButton.onclick = async () => await deleteUser (user.id); // Cambiado a 'user.id'
             li.appendChild(deleteButton);
 
             userList.appendChild(li);
@@ -73,7 +83,7 @@ function editUser (user) {
     if (username) {
         const token = localStorage.getItem('token');
 
-        fetch(`http://localhost:3000/users/${user.id}`, {
+        fetch(`http://localhost:3000/users/${user.id}`, { // Cambiado a 'user.id'
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

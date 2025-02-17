@@ -2,26 +2,30 @@
   "name": "act-3",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
- "scripts": {
-  "test": "jest"
+  "main": "server-1.js",
+  "scripts": {
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AbisaiHdz06/ACT_04"
+    "url": "https://github.com/AbisaiHdz06/Actt_04/upload"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AbisaiHdz06/ACT_04"
+    "url": "https://github.com/AbisaiHdz06/Actt_04/upload"
   },
-  "homepage": "https://github.com/AbisaiHdz06/ACT_04",
+  "homepage": "https://github.com/AbisaiHdz06/Actt_04/upload",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
