@@ -1,95 +1,115 @@
-/* Reset básico para eliminar márgenes y centrado global */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
+/* Estilos generales */
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribuye los elementos */
-  align-items: center;
-  min-height: 100vh; /* Mantiene el contenido ocupando toda la pantalla */
+  font-family: Arial, sans-serif;
   background-color: #f4f4f4;
+  margin: 0;
   padding: 20px;
 }
 
-h1, h2 {
+/* Estilo del encabezado */
+h1 {
   text-align: center;
-  margin-bottom: 20px;
+  color: #333;
 }
 
+/* Estilo del formulario */
 form {
-  background: white;
+  background: #fff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  margin-bottom: 50px; /* Aumenta la separación con la sección de usuarios registrados */
+  margin: 20px auto;
 }
 
+/* Estilo de las etiquetas */
 label {
-  margin-top: 10px;
-  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
 }
 
-input {
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Estilo de los campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
-}
-
-button {
-  margin-top: 20px;
   padding: 10px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-button:hover {
+/* Estilo del botón de registro */
+button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Estilo del encabezado de usuarios registrados */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 40px;
+}
+
+/* Estilo del botón para ver usuarios */
+#fetch-users {
+  display: block;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#fetch-users:hover {
   background-color: #0056b3;
 }
 
-#fetch-users {
-  margin-top: 20px;
-}
-
-ul {
-  list-style: none;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+/* Estilo de la lista de usuarios */
+#user-list {
+  list-style-type: none;
+  padding: 0;
   max-width: 400px;
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: 10px; /* Reduce la distancia al pie de página */
+  margin: 20px auto;
 }
 
-li {
+#user-list li {
+  background: #fff;
+  margin: 5px 0;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-li:last-child {
-  border-bottom: none;
+#user-list button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 480px) {
-  form, ul {
-      width: 90%;
-  }
+#user-list button:hover {
+  background-color: #c82333;
 }

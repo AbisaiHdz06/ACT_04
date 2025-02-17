@@ -7,5 +7,5 @@ app.get("/api/status", (req, res) => {
   res.json({ message: "server is running!" });
 });
 
-module.exports = app; // 👈 Importante: Exportar la app
+module.exports = app; 
 
